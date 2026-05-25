@@ -30,4 +30,4 @@ jobs:
 
       - name: Ejecutar pruebas
         run: |
-          pytest --cov=app --cov-fail-under=80
+          PYTHONPATH=. python -m pytest --cov=app --cov-fail-under=80
