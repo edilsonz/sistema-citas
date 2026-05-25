@@ -25,15 +25,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest pytest-cov
 
-      - name: Configurar PYTHONPATH
-        run: echo "PYTHONPATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
-
-      - name: Mostrar estructura
-        run: |
-          pwd
-          ls -R
       - name: Ejecutar pruebas
         run: |
-          python -c "import os; print(os.getcwd())"
-          python -c "import sys; print(sys.path)"
-          python -m pytest --cov=app --cov-fail-under=80
+          PYTHONPATH=. python -m pytest --cov=app --cov-fail-under=80
